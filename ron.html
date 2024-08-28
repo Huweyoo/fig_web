@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <script src="https://kit.fontawesome.com/bde32d19ac.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #FEFBF3;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            font-family: 'Roboto', sans-serif;
+            overflow: hidden;
+        }
+        .body-container{
+            width:100%;
+            display: flex;
+            flex-direction: row;
+        }
+        .left-image{
+            width:50vw;
+            height: 100vh;
+            transition: 1s;
+            
+        }
+
+        .left-text{
+            position: absolute;
+            width:400px;
+            color:white;
+            height:300px;
+            top: 83%;
+            left: 30%;
+            transform: translate(-50%, -50%);
+        }
+        .left-text a{
+            text-decoration: none;
+            font-weight: bold;
+            color:white;
+            font-size:15px;
+            transition: color 0.5s;
+        }
+        .left-text a:hover{
+            color:#8BB82C;
+        }
+        .left-text h1{
+            font-weight: bolder;
+            font-size: 40px;
+            margin-top:-15px;
+        }
+        .left-text h2{
+            font-size:20px;
+        }
+
+        .left-text p{
+            font-size:12px;
+            margin-top:-10px;
+        }
+
+        .right-section{
+            width:50vw;
+            height: 100vh;
+        }
+        .image-inside{
+            width: 100%;height:100%;
+        }
+        .inspired{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-left:8px;
+        }
+        .inspired2{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-left:8px;
+            visibility: visible;
+        }
+        .navigation{
+
+            width:100%;
+            height:15%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        ul{
+            list-style-type: none;
+            display: flex;
+            margin-right:40px;
+
+        }
+        ul li{
+            margin-left:30px;
+            margin-right: 30px;
+        }
+        a{
+            text-decoration: none;
+        }
+        ul li a{
+            font-weight: bold;
+            font-size:14px;
+            color:#8BB82C;
+            transition: color 0.5s;
+        }
+        ul li a:hover{
+            color:#5B7E0F;
+            border-bottom: 3px solid #8BB82C;
+        }
+        .container {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #5B7E0F;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+  transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  -webkit-transform: rotate(45deg) translate(-8px, -8px);
+  transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.inspired{
+    transition: 1s;
+}
+.right-section:hover .inspired{
+   opacity:0%;
+}
+
+.content{
+    width:100%;
+    height:80%;
+    transition: 1s;
+    display: flex;
+    flex-direction: row;
+   display: none;
+
+}
+
+.right-section:hover .content{
+   opacity:100%;
+}
+
+.text-content{
+    display: flex;
+    font-size:14px;
+    color:#63831e;
+    padding:70px;
+    margin-top:80px;
+  
+}
+
+
+.plant-container{
+ 
+    padding-top:-100px;
+    margin-bottom: 100px;
+    margin-right:-40px;
+    
+}
+
+.gallery{
+    width:100%;
+    height:80%;
+   
+}
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	box-sizing: border-box;
+}
+
+
+.container-gallery {
+	margin: 0 auto;
+	max-width: 700px;
+	max-height: 100vh;
+
+    display:none;
+}
+
+
+/* Useful Classes */
+.xy-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.transition {
+	transition: all 350ms ease-in-out;
+}
+
+.r-3-2 {
+	width: 100%;
+	padding-bottom: 66.667%;
+	background-color: #ddd;
+}
+
+.image-holder {
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+/* Main Styles */
+.gallery-wrapper {
+	position: relative;
+	overflow: hidden;
+}
+
+.gallery {
+	position: relative;
+	white-space: nowrap;
+	font-size: 0;
+}
+
+.item-wrapper {
+	cursor: pointer;
+	width: 23%; /* arbitrary value */
+	display: inline-block;
+	background-color: white;
+}
+
+.gallery-item { opacity: 0.5; }
+.gallery-item.active { opacity: 1; }
+
+.controls {
+	font-size: 0;
+	border-top: none;
+}
+.move-btn {
+	display: inline-block;
+	width: 50%;
+	border: none;
+  color: #ccc;
+	background-color: transparent;
+	padding: 0.2em 1.5em;
+}
+.move-btn:first-child {border-right: none;}
+.move-btn.left  { cursor: w-resize; }
+.move-btn.right { cursor: e-resize; }
+
+.content3{
+    width:100%;
+    height: 80%;
+
+    display: none;
+    padding:70px;
+}
+
+.content4{
+    width:100%;
+    height: 80%;
+    display: none;
+    flex-direction: row-reverse;
+    padding:70px;
+}
+
+
+
+.text3{
+    color:#63831e;
+    width:50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    padding:20px;
+    
+}
+.text4 h1{
+    font-size:50px;
+    font-weight: bolder;
+    margin-bottom:20px;
+}
+.text4 p{
+    font-size:13px;
+}
+.text4{
+    color:#63831e;
+    width:50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    padding:20px;
+    
+}
+.text3 h1{
+    font-size:50px;
+    font-weight: bolder;
+    margin-bottom:20px;
+}
+.text3 p{
+    font-size:13px;
+}
+
+.image3{
+   padding-top:80px;
+    padding-bottom:80px;
+   width:50%;
+}
+.image3 img{
+    width: 100%;
+    height: 100%;
+}
+
+.image4{
+   padding-top:80px;
+    padding-bottom:80px;
+   width:50%;
+}
+.image4 img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.sl{
+  margin-top:10px;
+}
+.sl li{
+    margin-left:-10px;
+}
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+
+form { max-width:420px; margin:50px auto; }
+
+.feedback-input {
+  color:white;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight:500;
+  font-size: 18px;
+  border-radius: 5px;
+  line-height: 22px;
+  background-color: transparent;
+  border:2px solid #8BB82C;
+  transition: all 0.3s;
+  padding: 13px;
+  margin-bottom: 15px;
+  width:100%;
+  box-sizing: border-box;
+  outline:0;
+}
+
+.feedback-input:focus { border:2px solid #8BB82C; }
+
+textarea {
+  height: 150px;
+  line-height: 150%;
+  resize:vertical;
+}
+
+[type="submit"] {
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  width: 100%;
+  background:#618317;
+  border-radius:5px;
+  border:0;
+  cursor:pointer;
+  color:white;
+  font-size:24px;
+  padding-top:10px;
+  padding-bottom:10px;
+  transition: all 0.3s;
+  margin-top:-4px;
+  font-weight:700;
+}
+[type="submit"]:hover { background:#8BB82C; }
+    </style>
+</head>
+<body>
+    <div class="body-container">
+        <div class="left-image">
+            <div class="left-text">
+                <h2>SIMPLE WAY TO</h2>
+                <h1>GET INSPIRED</h1>
+                
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio libero placerat nisl, praesent sit egestas. Sapien, ullamcorper feugiat sodales morbi morbi ac egestas posuere. Arcu, mi lorem egestas eu ornare. Mi, nunc etiam amet, lorem dolor morbi.</p>
+                <a href="#">LEARN MORE</a>
+             </div>
+           <img src="leaf1.png" alt="" class="left-image"  id="imgClickAndChange" >
+
+          
+        </div>
+        <div  class="right-section">
+            <div class="navigation">
+                <ul>
+                    <li>
+                        <a href="#"onclick="changeImage1()">HOME</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="changeImage2()">ABOUT</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="changeImage3()">PRODUCT</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="changeImage4()">SERVICE</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="changeImage5()">CONTACT</a>
+                    </li>
+                </ul>
+                <div class="container" onclick="myFunction(this)">
+                    <div class="bar1"></div>
+                    <div class="bar2"></div>
+                    <div class="bar3"></div>
+                  </div>
+            </div>
+
+            <div class="content" id="content1">
+                <div class="plant-container">
+                    <img src="plant.png" alt="" class="plant-img">
+                </div>
+               
+                <div class="text-content" >
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni doloribus, voluptatibus corporis totam, asperiores quam amet labore nihil sit dolore maxime molestiae culpa aliquam reiciendis numquam quisquam voluptatum, error optio nemo praesentium fugiat! Ipsum at aliquid enim explicabo eius quidem, incidunt laboriosam ex ratione impedit delectus quae numquam, inventore ipsam? <br><br><br>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi voluptatibus ipsam velit iste illo saepe doloribus iusto laboriosam quasi, veritatis excepturi beatae ad repudiandae quae architecto voluptas. Quaerat, voluptatum inventore!
+                    </p>
+                </div>
+            </div>
+
+            <div class="container-gallery" id="content2">
+	
+                <div class="feature">
+                    <figure class="featured-item image-holder r-3-2 transition"></figure>
+                </div>
+                
+                <div class="gallery-wrapper">
+                    <div class="gallery">
+                            <div class="item-wrapper">
+                                <figure class="gallery-item image-holder r-3-2 active transition"></figure>
+                            </div>
+                            <div class="item-wrapper">
+                                <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                            </div>
+                            <div class="item-wrapper">
+                                <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                            </div>
+                            <div class="item-wrapper">
+                                <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                            </div>
+                            <div class="item-wrapper">
+                                <figure class="gallery-item image-holder r-3-2"></figure>
+                            </div>
+                            <div class="item-wrapper">
+                                <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                            </div>
+                            <div class="item-wrapper">
+                                <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                            </div>
+                            <div class="item-wrapper">
+                                <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                            </div>
+                            <div class="item-wrapper">
+                                <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                            </div>
+                            <div class="item-wrapper">
+                                <figure class="gallery-item image-holder r-3-2 transition"></figure>
+                            </div>
+                    </div>
+                </div>
+                
+              
+
+
+                <div class="controls">
+                    <button class="move-btn left">&larr;</button>
+                    <button class="move-btn right">&rarr;</button>
+                </div>
+                
+            </div>
+
+
+
+            <div class="content3" id="content3">
+                <div class="text3">
+                   <h1>Welcome!</h1>
+                   <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem dolores soluta voluptatibus distinctio iure omnis assumenda sapiente culpa magnam molestiae nihil non cumque adipisci sit sunt atque, itaque tenetur harum quibusdam quidem? Dolores aliquid distinctio doloremque repellendus accusantium fugit obcaecati eum? Aperiam libero voluptates commodi aspernatur dolorum maxime consequuntur dolorem?</p>
+                    <ul class="sl">
+                        <li><i class="fab fa-facebook-square fa-lg" style="margin-left:10px;"></i></li>
+                        <li><i class="fab fa-instagram-square  fa-lg"></i></li>
+                        <li><i class="fab fa-twitter-square  fa-lg"></i></li>
+                    </ul>
+                </div>
+                <div class="image3">
+<img src="vector.png" alt="">
+                </div>
+            </div>
+
+            <div class="content4" id="content4">
+                <div class="text4">
+                   <h1>LET'S TALK!</h1>
+                   <form>      
+                    <input name="name" type="text" class="feedback-input" placeholder="Name" />   
+                    <input name="email" type="text" class="feedback-input" placeholder="Email" />
+                    <textarea name="text" class="feedback-input" placeholder="Comment"></textarea>
+                    <input type="submit" value="SUBMIT"/>
+                  </form>
+                </div>
+                <div class="image4">
+<img src="contact.svg" alt="">
+                </div>
+            </div>
+
+
+            <div>
+                <img src="ip1.png" alt="" class="inspired" id="center-text">
+            </div>
+
+            <div>
+                <img src="ip1.png" alt="" class="inspired2" id="center-text2">
+            </div>
+        
+        </div>
+    </div>
+
+    
+    
+    <script>
+        function myFunction(x) {
+          x.classList.toggle("change");
+        }
+    </script>
+        
+        <script src="code.js"></script>
+    
+</body>
+</html>
